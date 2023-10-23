@@ -6,34 +6,34 @@ class Calculator {
     }
 
     clear() {
-        this.currrentOperand = ''
+        this.currentOperand = ''
         this.previousOperand = ''
         this.operation = undefined
     }
 
     delete() {
-        this.currrentOperand = this.currrentOperand.toString().slice(0, -1)
+        this.currentOperand = this.currentOperand.toString().slice(0, -1)
     }
 
     appendNumber(number) {
-        if (number === '.' && this.currrentOperand.includes('.')) return
-        this.currrentOperand = this.currrentOperand.toString() + number.toString()
+        if (number === '.' && this.currentOperand.includes('.')) return
+        this.currentOperand = this.currentOperand.toString() + number.toString()
     }
 
     chooseOperation(operation) {
-        if (this.currrentOperand === '') return
+        if (this.currentOperand === '') return
         if (this.previousOperand !== '') {
             this.compute()
         }
         this.operation = operation
-        this.previousOperand = this.currrentOperand
-        this.currrentOperand = ''
+        this.previousOperand = this.currentOperand
+        this.currentOperand = ''
     }
 
     compute() {
         let computation
         const prev = parseFloat(this.previousOperand)
-        const current = parseFloat(this.currrentOperand)
+        const current = parseFloat(this.currentOperand)
 
         if (isNaN(prev) || isNaN(current)) return
 
@@ -53,7 +53,7 @@ class Calculator {
             default:
                 return
         }
-        this.currrentOperand = computation
+        this.currentOperand = computation
         this.operation = undefined
         this.previousOperand = ''
     }
