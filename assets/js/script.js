@@ -1,5 +1,3 @@
-
-
 class Calculator {
     constructor(previousOperandTextElement, currentOperandTextElement) {
         this.previousOperandTextElement = previousOperandTextElement
@@ -66,27 +64,27 @@ class Calculator {
         const decimalDigits = stringNumber.split('.')[1]
         let integerDisplay
         if (isNaN(integerDigits)) {
-          integerDisplay = ''
+            integerDisplay = ''
         } else {
-          integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 })
+            integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 })
         }
         if (decimalDigits != null) {
-          return `${integerDisplay}.${decimalDigits}`
+            return `${integerDisplay}.${decimalDigits}`
         } else {
-          return integerDisplay
+            return integerDisplay
         }
-      }
+    }
 
     updateDisplay() {
         this.currentOperandTextElement.innerText =
-          this.getDisplayNumber(this.currentOperand)
+            this.getDisplayNumber(this.currentOperand)
         if (this.operation != null) {
-          this.previousOperandTextElement.innerText =
-            `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
+            this.previousOperandTextElement.innerText =
+                `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
         } else {
-          this.previousOperandTextElement.innerText = ''
+            this.previousOperandTextElement.innerText = ''
         }
-      }
+    }
 }
 
 const numberButtons = document.querySelectorAll('[data-number]')
